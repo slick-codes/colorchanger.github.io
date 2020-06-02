@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behaior:smooth;
+    outline:none;
+    box-sizing:border-box;
+    border:none;
+}
+
+@font-face {font-family: "GeosansLight"; src: url("//db.onlinewebfonts.com/t/228984258eaa17737d6d3fdcc03f6f1f.eot"); src: url("//db.onlinewebfonts.com/t/228984258eaa17737d6d3fdcc03f6f1f.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/228984258eaa17737d6d3fdcc03f6f1f.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/228984258eaa17737d6d3fdcc03f6f1f.woff") format("woff"), url("//db.onlinewebfonts.com/t/228984258eaa17737d6d3fdcc03f6f1f.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/228984258eaa17737d6d3fdcc03f6f1f.svg#GeosansLight") format("svg"); }
+
+:root{
+    --duration:0.2s;
+}
+
+body{
+    display:flex;
+    flex-flow:column;
+    justify-content: center;
+    align-items: center;
+}
+.mainBody {
+    width: 100%;
+    display:flex;
+    flex-flow:column;
+    justify-content: center;
+    align-items: center;
+}
+@media (min-width:600px){
+    .mainBody{
+        width:50%;
+    }
+}
+.preview-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5em 0;
+    width:100%;
+}
+
+.preview-container .preview {
+    padding: 5em 0em;
+    background: red;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width:59%;
+    box-shadow:inset 0px 0px 7px 1px rgba(0, 0, 0, 0.33);
+    transition:var(--duration);
+}
+
+
+.preview  h1{
+    font-family:Century Gothic;
+    font-weight:normal;
+    font-size:15px;
+    padding:0.4em 1em;
+    border-radius: 5em;
+    background:white;
+    width:70%;
+    display:flex;
+    justify-content: center;
+}
+.selector-container {
+    width: 100%;
+    display:flex;
+    flex-flow:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.selector-container > div {
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 1em 0;
+    margin-top:2em;
+    border-radius:0.5em;
+    box-shadow:inset 0px 0px 7px 1px rgba(0, 0, 0, 0.21);
+}
+
+.disabled{
+    background:#b5b5b5 !important;
+}
+.red-label {
+    background: #ff5757;
+}
+
+.green-label {
+    background: #35c735;
+}
+
+.blue-label {
+    background: #4e4edd;
+}
+
+.selector-container > div input[type=range] {
+    width: 78%;
+    transition:1s;
+    border-radius:4em;
+    animate:0.2s;
+    -webkit-appearance:none;
+    appearance:none;
+}
+input[type=range]:focus{
+    outline:none;
+}
+input[type=range]::-webkit-slider-runnable-track{
+    background:white;
+    cursor:pointer;
+    border-radius:50%;
+    height:1em;
+    animate:0.2s;
+}
+input[type=range]::-ms-tranck{
+    background:transparent;
+    color:transparent;
+    border-color:transparent;
+}
+
+input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    border:1px solid purple;
+    height:30px;
+    width:12px;
+    margin-top:-0.6em;
+    background:black;
+    cursor:pointer;
+    border-radius:0.5em;
+}
+
+
+.pallet-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:1.5em;
+}
+
+.pallet-container > div {
+    background:red;
+    width:4em;
+    height:4em;
+    margin-left:0.4em;
+    border-radius:0.2em;
+    margin-right:0.5em;
+    transition-property:transform;
+    transition-duration:var(--duration);
+    box-shadow:inset 0px 3px 7px 1px rgba(0, 0, 0, 0.38);
+    will-change: transform;
+    cursor:pointer;
+}
+.pallet-1{
+    transform:scale(1);
+}
+.active-pallet{
+    transform:scale(1.3);
+    box-shadow:0px 0px transparent;
+}
+
+body .pallet-0{
+    background:rgb(255, 157, 0);
+}
+body .pallet-1{
+    background:rgb(70, 134, 154);
+}
+body .pallet-2{
+    background:rgb(98, 76, 56);
+}
+
+.msg{
+    position:fixed;
+    background:#000000;
+    width:40%;
+    border-radius:0.2em;
+    padding:1em;
+    color:white;
+    font-family:Century Gothic;
+    text-align:left;
+    font-size:15px;
+    z-index: 1;
+    transition-property:transform;
+    transition-duration:0.5s;
+    opacity:0;
+    pointer-events:none;
+}
+.msg.active{
+    opacity:1;
+    pointer-events:auto;
+}
+.msg button{
+    border:none;
+    color:white;
+    background:red;
+    border-radius:0.2em;
+    padding:0.4em 1em;
+    margin:0.6em 0;
+    margin-bottom:0;
+}
+
